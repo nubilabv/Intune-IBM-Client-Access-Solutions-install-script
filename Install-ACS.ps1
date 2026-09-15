@@ -21,7 +21,7 @@
 
 
 
-# --- VARIABLES ---
+# VARIABLES
 $SourceFolder      = "$PSScriptRoot" #This assumes we include all the install files with the app
 $TargetFolder      = "C:\Program Files (x86)\IBM\IBM i Access Client Solutions" #Change this folder to your desired install path
 $LauncherExe       = "$TargetFolder\Start_Programs\Windows_x86-64\acslaunch_win-64.exe" 
@@ -31,7 +31,7 @@ $DetectionRegPath  = "HKLM:\SOFTWARE\COMPANYNAME\ACSDeployment"   # Change Compa
 $DetectionRegName  = "InstalledVersion"
 $DetectionRegValue = "1.0"   # Bump this if you version your deployment package
 
-# --- LOGGING ---
+# LOGGING
 $logDir  = Join-Path $env:ProgramData "ACSDeployment\Logs"
 New-Item -ItemType Directory -Path $logDir -Force | Out-Null
 $logFile = Join-Path $logDir ("Install-ACS_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
@@ -66,7 +66,7 @@ function Set-FileAssociation {
     Write-Log "Associated .$Extension with $ExePath"
 }
 
-# --- MAIN LOGIC ---
+# MAIN LOGIC
 try {
     Write-Log "Starting IBM i Access Client Solutions deployment"
     Write-Log "Running as: $(whoami)"
